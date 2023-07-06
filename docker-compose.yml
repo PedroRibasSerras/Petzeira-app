@@ -7,15 +7,13 @@ services:
     # restart: always
     working_dir: /home/node/front
     ports:
-      - 3000:3000
-    expose:
-      - 3000
+      - 80:3000
     networks:
-      - eagle-network
+      - petzeira-network
     volumes:
       - ./:/home/node/front
     command: sh -c "yarn && yarn build"
 
 networks:
-  eagle-network:
+  petzeira-network:
    
