@@ -14,9 +14,9 @@ function PhotoToggle() {
         {toggled && <span>Foto</span>}
       </TextAlignerBox>
     }>
-      <MenuItem component={<Link to="/Tirar Foto" />}> Tirar Foto </MenuItem>
-      <MenuItem component={<Link to="/Agendar" />}> Agendar </MenuItem>
-      <MenuItem component={<Link to="/Histórico" />}> Histórico </MenuItem>
+      <MenuItem component={<Link to="/picture" />}> Tirar Foto </MenuItem>
+      <MenuItem component={<Link to="/picture/schedule" />}> Agendar </MenuItem>
+      <MenuItem component={<Link to="/picture/historic" />}> Histórico </MenuItem>
     </SubMenu>
   );
 }

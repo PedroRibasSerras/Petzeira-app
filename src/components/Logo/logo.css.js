@@ -1,30 +1,11 @@
 import styled from 'styled-components';
 import { GiDogBowl } from 'react-icons/gi';
-import { SquareButton } from '../../utils.css'
 
-export const HomeWrapper = styled.div`
-    flex-grow: 1;
-    overflow: auto;
-    text-align: center;
-`;
-
-export const HomeContent = styled.div`
-    background-color: rgb(33, 33, 33);
-    min-height: 100vh;
+export const  LogoWrapper = styled.div`
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+    margin: ${props => props.margin? `${props.margin}` : '0 0 50px 0 '};
 ` ;
-
-export const  Logo = styled.div`
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 50px;
-` ;
-  
   
 export const  LogoImg = styled(GiDogBowl)`
     pointer-events: none;

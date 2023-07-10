@@ -1,20 +1,18 @@
-import { HomeWrapper, HomeContent, Logo, LogoImg, LogoName, LogoSubtitle } from './home.css';
-import { BigButton } from '../../utils.css'
+import Logo from '../../components/Logo/Logo'
+import { BigButton, PageWrapper, PageContent } from '../../utils.css'
+import { Link } from 'react-router-dom'
 
 function Home() {
   return (
-    <HomeWrapper>
-      <HomeContent>
-        <Logo>
-          <LogoImg  size={300}></LogoImg>
-          <LogoName>Petzeira</LogoName>
-          <LogoSubtitle>Seu pet mais feliz!</LogoSubtitle>
-        </Logo>
-        <BigButton>
+    <PageWrapper>
+      <PageContent>
+        <Logo enableImage={true} enableName={true} enableSubtitle={true}/>
+        <BigButton as={Link} to="Login">
           Começar
         </BigButton>
-      </HomeContent>
-    </HomeWrapper>
+      </PageContent>
+    </PageWrapper>
+    
   );
 }
 

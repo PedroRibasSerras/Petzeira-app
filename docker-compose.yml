@@ -4,15 +4,15 @@ services:
 
   front:
     image: node
-    # restart: always
+    restart: always
     working_dir: /home/node/front
     ports:
-      - 80:3000
+      - 3000:3000
     networks:
       - petzeira-network
     volumes:
       - ./:/home/node/front
-    command: sh -c "yarn && yarn build"
+    command: sh -c "yarn && yarn start"
 
 networks:
   petzeira-network:

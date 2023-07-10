@@ -14,9 +14,9 @@ function FoodToggle() {
         {toggled && <span>Alimentação</span>}
       </TextAlignerBox>
     }>
-      <MenuItem component={<Link to="/Alimentar" />}> Alimentar </MenuItem>
-      <MenuItem component={<Link to="/Agendar" />}> Agendar </MenuItem>
-      <MenuItem component={<Link to="/Histórico" />}> Histórico </MenuItem>
+      <MenuItem component={<Link to="/feed" />}> Alimentar </MenuItem>
+      <MenuItem component={<Link to="/feed/schedule" />}> Agendar </MenuItem>
+      <MenuItem component={<Link to="/feed/historic" />}> Histórico </MenuItem>
     </SubMenu>
   );
 }

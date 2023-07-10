@@ -2,13 +2,14 @@ import { MenuItem} from 'react-pro-sidebar';
 import { menuClasses, useProSidebar} from 'react-pro-sidebar';
 import { TextAlignerBox, AvatarWrapper, AvatarImage, LinkPetzeira } from '../../../../utils.css'
 import { AvatarButtonOptions } from './avatarButton.css'
+import { Link } from 'react-router-dom';
 
 
 function AvatarButton() {
   const { toggled } = useProSidebar();
   
   return (
-        <MenuItem
+        <MenuItem component={<Link to="/login" />}
           rootStyles={{
             [`.${menuClasses.button}`]: {
               "&:hover": toggled && {
