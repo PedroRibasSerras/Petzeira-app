@@ -4,6 +4,8 @@ import LogoButton from '../Items/LogoButton/LogoButton.jsx'
 import AvatarButton from '../Items/AvatarButton/AvatarButton.jsx'
 import FoodToogle from '../Items/FoodToggle/FoodToggle.jsx'
 import PhotoToogle from '../Items/PhotoToggle/PhotoToggle.jsx'
+import ModulosButton from '../Items/ModulosButton/ModulosButton.jsx';
+import CalibreButton from '../Items/CalibreButton/CalibreButton.jsx';
 
 let menuItemStyles = {
   button: ({ level, active, disabled }) => {
@@ -26,6 +28,8 @@ function MenuPetzeira() {
       <Menu menuItemStyles={menuItemStyles}>
         <LogoButton   />
         <AvatarButton />
+        <ModulosButton   />
+        <CalibreButton />
         <FoodToogle   />
         <PhotoToogle  />
       </Menu>

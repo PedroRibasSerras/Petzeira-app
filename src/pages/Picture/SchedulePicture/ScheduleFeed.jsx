@@ -2,17 +2,18 @@
 import Logo from "../../../components/Logo/Logo";
 import { PageWrapper, PageContent } from "../../../utils.css";
 import DataArea from "../../../components/DataArea/DataArea";
-import { useState, useEffect, useContext } from "react";
-import { PetzeiraContext } from "../../../contexts/PetzeiraContext";
-import CurrentModuleSelect from "../../../components/CurrentModuleSelect/CurrentModuleSelect";
+import { useState, useEffect } from "react";
 import PetzeiraList from "../../../components/List/PetzeiraList/PetzeiraList";
+import Input from "../../../components/Forms/Input/Input";
+import Forms from "../../../components/Forms/Forms";
+import SubmitButton from "../../../components/Forms/SubmitButton/SubmitButton";
 import { CenteredBoxColumn } from "../../../utils.css";
+import ScheduleItem from "../../../components/ScheduleItem/ScheduleItem";
 
-export default function HistoricFeed({}) {
+export default function SchedulePicture({}) {
 	const [isLoading, setIsLoading] = useState(true);
-	const { events } = useContext(PetzeiraContext);
 
-	function handleFeed() {
+	function handleSchedulePicture() {
 		setIsLoading(true);
 		setInterval(() => {
 			setIsLoading(false);
@@ -45,25 +46,34 @@ export default function HistoricFeed({}) {
 					size={200}
 					margin={"0"}
 				/>
-				<h1 style={{ margin: "0 0 20px 0" }}>Historic</h1>
-				<CurrentModuleSelect></CurrentModuleSelect>
+				<h1 style={{ margin: "0 0 20px 0" }}>Schedule take a picture of your pet</h1>
 				<CenteredBoxColumn>
 					<span style={{ margin: "10px 0 20px 0", width: "98%" }}>
-						{events.length > 0 ?
-							<DataArea
-								isLoading={false}
-								loadingText="Loading historic..."
-							>
-								<PetzeiraList>
-									{events.map((data) => (
-										<div>{data.event} - {data.createdAt}</div>
-									))}
-								</PetzeiraList>
-							</DataArea>
-							: "No event"
-
-						}
+						<DataArea
+							isLoading={isLoading}
+							loadingText="Loading schedules..."
+						>
+							<PetzeiraList>
+								{[{ time: "12:00" }, { time: "18:00" }, { time: "22:00" }].map(
+									(data) => 
+										<ScheduleItem data={data} />
+								)}
+							</PetzeiraList>
+						</DataArea>
 					</span>
+					<Forms
+						onSubmit={(data) => {
+							handleSchedulePicture()
+							console.log(data);
+						}}
+					>
+						<Input
+							type="time"
+							label="time"
+						></Input>
+						<div style={{ padding: "10px" }}></div>
+						<SubmitButton>Schedule new time</SubmitButton>
+					</Forms>
 				</CenteredBoxColumn>
 			</PageContent>
 		</PageWrapper>

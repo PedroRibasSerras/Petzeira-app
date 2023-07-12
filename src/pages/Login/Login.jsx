@@ -5,10 +5,13 @@ import { PageWrapper, PageFormWrapper } from '../../utils.css'
 import Logo from '../../components/Logo/Logo'
 import { GrMail } from 'react-icons/gr'
 import { FaKey } from 'react-icons/fa'
+import { PetzeiraContext } from '../../contexts/PetzeiraContext'
+import { useContext } from "react";
 
 export default function Login({}) {
+    const {login} = useContext(PetzeiraContext);
     function handleLogin(data){
-        console.log(data)
+        login(data.email, data.password);
     }
     return (
         <PageWrapper>

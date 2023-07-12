@@ -6,11 +6,11 @@ import { useState, useEffect, useContext } from "react";
 import { PetzeiraContext } from "../../../contexts/PetzeiraContext";
 import CurrentModuleSelect from "../../../components/CurrentModuleSelect/CurrentModuleSelect";
 import PetzeiraList from "../../../components/List/PetzeiraList/PetzeiraList";
-import { CenteredBoxColumn } from "../../../utils.css";
+import { CenteredBoxColumn, BigButton } from "../../../utils.css";
 
-export default function HistoricFeed({}) {
+export default function MeasurementsFeed({}) {
 	const [isLoading, setIsLoading] = useState(true);
-	const { events } = useContext(PetzeiraContext);
+	const { measurements, requestMeasurements } = useContext(PetzeiraContext);
 
 	function handleFeed() {
 		setIsLoading(true);
@@ -45,25 +45,25 @@ export default function HistoricFeed({}) {
 					size={200}
 					margin={"0"}
 				/>
-				<h1 style={{ margin: "0 0 20px 0" }}>Historic</h1>
+				<h1 style={{ margin: "0 0 20px 0" }}>Measurements</h1>
 				<CurrentModuleSelect></CurrentModuleSelect>
 				<CenteredBoxColumn>
 					<span style={{ margin: "10px 0 20px 0", width: "98%" }}>
-						{events.length > 0 ?
+						{measurements.length > 0 ?
 							<DataArea
 								isLoading={false}
 								loadingText="Loading historic..."
 							>
 								<PetzeiraList>
-									{events.map((data) => (
-										<div>{data.event} - {data.createdAt}</div>
+									{measurements.map((data) => (
+										<div>{data.value}g <br/>-<br/> {data.createdAt}</div>
 									))}
 								</PetzeiraList>
 							</DataArea>
-							: "No event"
-
+							: "No measurement"
 						}
 					</span>
+					<BigButton onClick={requestMeasurements}>Request Measurement</BigButton>
 				</CenteredBoxColumn>
 			</PageContent>
 		</PageWrapper>

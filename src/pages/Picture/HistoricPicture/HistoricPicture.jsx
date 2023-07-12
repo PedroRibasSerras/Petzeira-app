@@ -2,15 +2,12 @@
 import Logo from "../../../components/Logo/Logo";
 import { PageWrapper, PageContent } from "../../../utils.css";
 import DataArea from "../../../components/DataArea/DataArea";
-import { useState, useEffect, useContext } from "react";
-import { PetzeiraContext } from "../../../contexts/PetzeiraContext";
-import CurrentModuleSelect from "../../../components/CurrentModuleSelect/CurrentModuleSelect";
+import { useState, useEffect } from "react";
 import PetzeiraList from "../../../components/List/PetzeiraList/PetzeiraList";
 import { CenteredBoxColumn } from "../../../utils.css";
 
-export default function HistoricFeed({}) {
+export default function HistoricPicture({}) {
 	const [isLoading, setIsLoading] = useState(true);
-	const { events } = useContext(PetzeiraContext);
 
 	function handleFeed() {
 		setIsLoading(true);
@@ -45,24 +42,32 @@ export default function HistoricFeed({}) {
 					size={200}
 					margin={"0"}
 				/>
-				<h1 style={{ margin: "0 0 20px 0" }}>Historic</h1>
-				<CurrentModuleSelect></CurrentModuleSelect>
+				<h1 style={{ margin: "0 0 20px 0" }}>Feed Historic</h1>
 				<CenteredBoxColumn>
 					<span style={{ margin: "10px 0 20px 0", width: "98%" }}>
-						{events.length > 0 ?
-							<DataArea
-								isLoading={false}
-								loadingText="Loading historic..."
-							>
-								<PetzeiraList>
-									{events.map((data) => (
-										<div>{data.event} - {data.createdAt}</div>
-									))}
-								</PetzeiraList>
-							</DataArea>
-							: "No event"
-
-						}
+						<DataArea
+							isLoading={isLoading}
+							loadingText="Loading historic..."
+						>
+							<PetzeiraList>
+								<img
+									src="https://love.doghero.com.br/wp-content/uploads/2018/12/golden-retriever-1.png"
+									alt="cachorro"
+								/>
+								<img
+									src="https://love.doghero.com.br/wp-content/uploads/2018/12/golden-retriever-1.png"
+									alt="cachorro"
+								/>
+								<img
+									src="https://love.doghero.com.br/wp-content/uploads/2018/12/golden-retriever-1.png"
+									alt="cachorro"
+								/>
+								<img
+									src="https://love.doghero.com.br/wp-content/uploads/2018/12/golden-retriever-1.png"
+									alt="cachorro"
+								/>
+							</PetzeiraList>
+						</DataArea>
 					</span>
 				</CenteredBoxColumn>
 			</PageContent>
