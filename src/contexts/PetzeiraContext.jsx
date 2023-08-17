@@ -2,12 +2,9 @@
 import axios from "../services/api";
 
 import { createContext, useEffect, useState } from "react";
-import { useQuery } from "@tanstack/react-query";
 import Cookies from "js-cookie";
-import { wait } from "@testing-library/user-event/dist/utils";
 
 export const PetzeiraContext = createContext({});
-const baseUrl = "http://api.pedroribasserras.space:3333";
 
 export function PetzeiraProvider({ children }) {
 	const [user, setUser] = useState({});
@@ -52,7 +49,7 @@ export function PetzeiraProvider({ children }) {
 
   async function register(name, email, password, confirmPassword) {
     if(password == confirmPassword){
-		  let response = await axios.post(baseUrl + "/auth/login", { email, password })
+		  let response = await axios.post(baseUrl + "/register", { name, email, password })
       setUser(response.data.data)
     }
 	}
